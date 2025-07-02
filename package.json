@@ -1,42 +1,49 @@
 {
-  "name": "telegram-bot-constructor",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "db_init": "prisma db seed"
-  },
-  "dependencies": {
-    "@prisma/client": "^6.11.0",
-    "@prisma/extension-accelerate": "^2.0.1",
-    "@tanstack/react-query": "^5.81.5",
-    "@tanstack/react-query-devtools": "^5.81.5",
-    "@trpc/client": "^11.4.3",
-    "@trpc/react-query": "^11.4.3",
-    "@trpc/server": "^11.4.3",
-    "client-only": "^0.0.1",
-    "next": "15.3.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "server-only": "^0.0.1",
-    "zod": "^3.25.67"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.4",
-    "prisma": "^6.11.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
-  }
+	"name": "telegram-bot-constructor",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"db_init": "prisma db seed"
+	},
+	"dependencies": {
+		"@prisma/client": "^6.11.0",
+		"@prisma/extension-accelerate": "^2.0.1",
+		"@tanstack/react-query": "^5.81.5",
+		"@tanstack/react-query-devtools": "^5.81.5",
+		"@trpc/client": "^11.4.3",
+		"@trpc/react-query": "^11.4.3",
+		"@trpc/server": "^11.4.3",
+		"bcryptjs": "^3.0.2",
+		"client-only": "^0.0.1",
+		"i": "^0.3.7",
+		"lucide-react": "^0.525.0",
+		"next": "15.3.4",
+		"next-auth": "^5.0.0-beta.29",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-hook-form": "^7.59.0",
+		"server-only": "^0.0.1",
+		"tsx": "^4.20.3",
+		"zod": "^3.25.67"
+	},
+	"devDependencies": {
+		"@eslint/eslintrc": "^3",
+		"@tailwindcss/postcss": "^4",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"eslint": "^9",
+		"eslint-config-next": "15.3.4",
+		"prisma": "^6.11.0",
+		"tailwindcss": "^4",
+		"typescript": "^5"
+	},
+	"prisma": {
+		"seed": "tsx prisma/init-seed.ts",
+		"schema": "./prisma/schema"
+	}
 }
