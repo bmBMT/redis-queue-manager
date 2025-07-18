@@ -1,7 +1,7 @@
 'use server';
  
 import { AuthError } from 'next-auth';
-import { signIn } from '@/app/config/auth';
+import { signIn } from '@client/config/auth';
  
 export async function authenticate(
   prevState: string | undefined,

@@ -19,7 +19,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
+      "@client/*": ["./src/app/*"],
+      "@server/*": ["./src/server/*"],
+      "@common/*": ["./src/common/*"],
       "~/*": ["./*"],
     }
   },

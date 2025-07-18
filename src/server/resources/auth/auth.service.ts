@@ -1,8 +1,8 @@
-import prisma from '@/server/lib/prisma';
+import prisma from '@server/lib/prisma';
 import { SignInDtoType } from './auth.dto';
 import { TRPCError } from '@trpc/server';
-import ServerErrors from '@/server/common/errors';
-import { encryptPassword } from '@/server/utils/encrypt-password';
+import ServerErrors from '@server/common/errors';
+import { encryptPassword } from '@server/utils/encrypt-password';
 
 class AuthService {
 	public async signUp(dto: SignInDtoType) {

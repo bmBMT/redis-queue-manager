@@ -1,4 +1,4 @@
-import { EMAIL_RULE, PASSWORD_RULE } from '@/common/constants/zod-rules';
+import { EMAIL_RULE, PASSWORD_RULE } from '@common/constants/zod-rules';
 import { z } from 'zod';
 
 export const SignInDto = z.object({

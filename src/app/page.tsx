@@ -1,4 +1,4 @@
-import { createSSRHelper } from '@/server';
+import { createSSRHelper } from '@server/.';
 import Image from "next/image";
 import Hydrate from './api/trpc/client/hydrate-client';
 
