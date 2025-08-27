@@ -1,0 +1,9 @@
+model Session {
+  id           String   @id @default(dbgenerated("uuid_generate_v4()"))
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id") @db.Uuid
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}

@@ -5,12 +5,12 @@
 import { useCallback, useMemo } from 'react';
 import type { Rule } from 'antd/es/form';
 import { z } from 'zod';
-import Form, { FormListFieldData, FormInstance } from 'antd/lib/form';
+import Form, { FormInstance } from 'antd/lib/form';
 
 type UseFormProps<T extends object> = {
 	form?: FormInstance<T>;
 	schema: z.ZodSchema<T> | null;
-	onSubmit: (data: T | null, error: FormListFieldData | null) => void;
+	onSubmit: (data: T) => void;
 };
 
 type UseFormTypes<T> = {
@@ -24,7 +24,7 @@ type UseFormTypes<T> = {
 	};
 };
 
-const mapErrorFromZodIssue = (issues) =>
+const mapErrorFromZodIssue = (issues = []) =>
 	issues.reduce((obj, issue) => {
 		const fieldName = issue.path.join('.');
 		if (!obj[fieldName]) {
@@ -75,7 +75,7 @@ export default function useForm<T extends Record<string, any>>({
 				.find((err) => fieldName.every((n) => err.name.includes(n)))?.errors ?? [];
 
 		if (errors.length) form.setFields([{ name: fieldName, errors: [] }]);
-	}, []);
+	}, [form]);
 
 	const onFinish = useCallback(
 		(data: T) => {
@@ -97,7 +97,7 @@ export default function useForm<T extends Record<string, any>>({
 					onSubmit(null, e);
 				});
 		},
-		[onSubmit, schema]
+		[onSubmit, schema, form]
 	);
 
 	return {

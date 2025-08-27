@@ -10,8 +10,6 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 export const TrpcProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const url = '/api/trpc/';
-
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [
@@ -19,7 +17,7 @@ export const TrpcProvider: React.FC<{ children: React.ReactNode }> = ({
           enabled: () => true,
         }),
         httpBatchLink({
-          url,
+          url: '/api/trpc',
           fetch: async (input, init?) => {
             const fetch = getFetch();
             return fetch(input, {

@@ -1,10 +1,12 @@
-import { theme as antdTheme, ThemeConfig } from 'antd';
+import { ThemeConfig } from "antd";
 
 const theme: ThemeConfig = {
-	token: {
-		fontFamily: 'Inter, sans-serif'
-	},
-	algorithm: antdTheme.darkAlgorithm
-}
+  token: {
+    fontFamily: "Inter, sans-serif",
+  },
+  components: {
+    Typography: { titleMarginBottom: 0 },
+  },
+};
 
 export default theme;

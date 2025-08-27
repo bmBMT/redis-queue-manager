@@ -1,7 +1,12 @@
 model User {
-  id       String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  email    String  @unique @db.VarChar(100)
-  password String? @db.VarChar(1000)
+  id            String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  password      String?   @db.VarChar(1000)
+  accounts      Account[]
+  sessions      Session[]
 
-  @@map("user")
+  @@map("users")
 }
