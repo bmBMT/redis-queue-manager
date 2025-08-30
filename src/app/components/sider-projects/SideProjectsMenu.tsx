@@ -1,7 +1,9 @@
-const SideProjectsMenu = () => {
-	return (
-		<div>SideProjectsMenu</div>
-	)
-}
+import { trpc } from "@client/api/trpc/client/trpc";
 
-export default SideProjectsMenu
+const SideProjectsMenu = () => {
+  trpc.redis.test.useQuery();
+
+  return <div>SideProjectsMenu</div>;
+};
+
+export default SideProjectsMenu;

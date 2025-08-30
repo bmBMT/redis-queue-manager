@@ -1,6 +1,16 @@
-import { QueryClient } from '@tanstack/react-query';
+import { ONE_DAY, ONE_MINUTE } from "@common/constants/time.constants";
+import { QueryClient } from "@tanstack/react-query";
+import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister'
 
-const queryClient = new QueryClient({
-  defaultOptions: { queries: { staleTime: 5 * 1000 } },
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: ONE_MINUTE * 2,
+      gcTime: ONE_DAY,
+    },
+  },
 });
-export default queryClient;
+
+export const queryClientPersister = createAsyncStoragePersister({
+  storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+})

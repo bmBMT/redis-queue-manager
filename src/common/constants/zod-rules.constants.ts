@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { PASSWORD_REGEX, SHORT_LENGTH } from '.';
+import { PASSWORD_REGEX, SHORT_LENGTH } from './default.constants';
 import Errors from '../errors';
 
 export const EMAIL_RULE = z.string().email({ message: Errors.MUST_BE_EMAIL });

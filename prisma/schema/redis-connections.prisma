@@ -1,0 +1,13 @@
+model RedisConnection {
+  id String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+	name String @unique
+	host String
+	port Int
+	password String?
+	db Int @default(0)
+	tls Boolean @default(false)
+	createdAt DateTime @default(now()) @map("created_at")
+	updatedAt DateTime @updatedAt @map("updated_at")
+
+	@@map("redis_connections")
+}

@@ -15,7 +15,7 @@ const SessionLayout = ({ children }: PropsWithChildren) => {
   } = theme.useToken();
 
   return (
-    <Layout>
+    <Layout className='h-dvh'>
       <Layout.Header style={{ background: colorBgContainer }} className="flex items-center justify-between">
         <Link href={RoutesConfig.DASHBOARD}>
           <Flex gap={8}>
@@ -28,15 +28,15 @@ const SessionLayout = ({ children }: PropsWithChildren) => {
           <UserPopover />
         </Flex>
       </Layout.Header>
-      <Layout className="h-dvh">
+      <Layout>
         <Splitter>
           <Splitter.Panel defaultSize={252} min={252}>
-            <Layout.Sider style={{ background: colorBgContainer }} className="h-dvh !min-w-[250px] !max-w-none !w-full">
+            <Layout.Sider style={{ background: colorBgContainer }} className="h-full !min-w-[250px] !max-w-none !w-full">
               <SideProjectsMenu />
             </Layout.Sider>
           </Splitter.Panel>
-          <Splitter.Panel>
-            <Layout.Content>{children}</Layout.Content>
+          <Splitter.Panel min='70%'>
+            <Layout.Content className='p-8'>{children}</Layout.Content>
           </Splitter.Panel>
         </Splitter>
       </Layout>

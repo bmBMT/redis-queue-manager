@@ -22,6 +22,8 @@ type UseFormTypes<T> = {
 	inputField: {
 		rules: Rule[];
 	};
+	getValues: () => T;
+	setValues: (values: Partial<T>) => void;
 };
 
 const mapErrorFromZodIssue = (issues = []) =>
@@ -86,6 +88,8 @@ export default function useForm<T extends Record<string, any>>({
 				.then(() => onSubmit(data, null))
 				.catch((e) => {
 					const errorMap = mapErrorFromZodIssue(e.issues);
+					console.log(errorMap);
+					
 
 					const fields = Object.keys(errorMap).map((field) => ({
 						name: field
@@ -103,5 +107,7 @@ export default function useForm<T extends Record<string, any>>({
 	return {
 		formField: { form, onFinish, onChange },
 		inputField: { rules: [rules] },
+		getValues: () => form.getFieldsValue(),
+		setValues: (values: Partial<T>) => form.setFieldsValue(values),
 	};
 }
