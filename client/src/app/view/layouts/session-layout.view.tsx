@@ -1,0 +1,50 @@
+'use client'
+
+import SideConnectionsMenu from "@client/components/SideConnectionssMenu";
+import ThemeModeSwitchet from "@client/components/ThemeModeSwitchet";
+import UserPopover from "@client/components/UserPopover";
+import { RoutesConfig } from "@client/config/routes.config";
+import { Flex, Layout, Splitter, theme, Typography } from "antd";
+import { Activity } from "lucide-react";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
+
+const SessionLayoutView = ({ children }: PropsWithChildren) => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  return (
+    <Layout className="h-dvh">
+      <Layout.Header style={{ background: colorBgContainer }} className="flex items-center justify-between">
+        <Link href={RoutesConfig.DASHBOARD}>
+          <Flex gap={8}>
+            <Activity className="text-blue-600" />
+            <Typography.Title level={5}>Redis Queue Manager</Typography.Title>
+          </Flex>
+        </Link>
+        <Flex gap={16} align="center">
+          <ThemeModeSwitchet />
+          <UserPopover />
+        </Flex>
+      </Layout.Header>
+      <Layout>
+        <Splitter>
+          <Splitter.Panel defaultSize={252} min={252}>
+            <Layout.Sider
+              style={{ background: colorBgContainer }}
+              className="h-full !min-w-[250px] !max-w-none !w-full"
+            >
+              <SideConnectionsMenu />
+            </Layout.Sider>
+          </Splitter.Panel>
+          <Splitter.Panel min="70%">
+            <Layout.Content className="p-8">{children}</Layout.Content>
+          </Splitter.Panel>
+        </Splitter>
+      </Layout>
+    </Layout>
+  );
+};
+
+export default SessionLayoutView;
