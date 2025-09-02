@@ -1,6 +1,6 @@
 'use client'
 
-import AddRedisConnectionModal from '@client/components/AddRedisConnectionModal';
+import AddRedisConnectionModal from '~/src/components/AddRedisConnectionModal';
 import { Flex, Typography } from "antd";
 
 const DashboardPage = () => {

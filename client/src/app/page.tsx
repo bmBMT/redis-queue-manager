@@ -2,10 +2,10 @@
 
 import { Button, Flex, Typography } from "antd";
 import { Lock } from "lucide-react";
-import ThemeModeSwitchet from "./components/ThemeModeSwitchet";
+import ThemeModeSwitchet from "../components/ThemeModeSwitchet";
 import { signIn } from "next-auth/react";
-import { RoutesConfig } from "./config/routes.config";
-import useGradientButtonStyle from "./shared/styles/useGradientButtonStyle";
+import { RoutesConfig } from "../config/routes.config";
+import useGradientButtonStyle from "../shared/styles/useGradientButtonStyle";
 
 const AuthPage = () => {
   const { styles, cx } = useGradientButtonStyle();

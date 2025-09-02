@@ -1,35 +1,32 @@
 {
-	"name": "telegram-bot-constructor",
-	"version": "0.1.0",
+	"name": "@redis-queue-manager/client",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"seed": "ts-node prisma/db-seed.ts",
-		"deploy": "npx prisma migrate deploy"
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"@ant-design/icons": "^6.0.0",
 		"@ant-design/nextjs-registry": "^1.0.2",
 		"@ant-design/v5-patch-for-react-19": "^1.0.3",
 		"@auth/prisma-adapter": "^2.10.0",
-		"@prisma/client": "^6.11.0",
-		"@prisma/extension-accelerate": "^2.0.1",
+		"@redis-queue-manager/prisma": "^1.0.0",
+		"@redis-queue-manager/shared": "^1.0.0",
+		"@redis-queue-manager/zod": "^1.0.0",
 		"@tanstack/query-async-storage-persister": "^5.85.5",
 		"@tanstack/react-query": "^5.81.5",
 		"@tanstack/react-query-devtools": "^5.81.5",
 		"@tanstack/react-query-persist-client": "^5.85.5",
 		"@trpc/client": "^11.4.3",
 		"@trpc/react-query": "^11.4.3",
-		"@trpc/server": "^11.4.3",
 		"antd": "^5.26.4",
 		"antd-style": "^3.7.1",
-		"bullmq": "^5.58.3",
 		"client-only": "^0.0.1",
 		"cookies-next": "^6.1.0",
-		"ioredis": "^5.7.0",
+		"dotenv": "^17.2.1",
 		"lucide": "^0.525.0",
 		"lucide-react": "^0.525.0",
 		"next": "15.3.4",
@@ -39,9 +36,7 @@
 		"react-dom": "^19.0.0",
 		"react-hook-form": "^7.59.0",
 		"react-player": "^3.2.0",
-		"redis": "^5.8.2",
 		"server-only": "^0.0.1",
-		"speakingurl": "^14.0.1",
 		"tsx": "^4.20.3",
 		"usehooks-ts": "^3.1.1",
 		"zod": "^3.25.67",
@@ -53,15 +48,9 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
-		"@types/speakingurl": "^13.0.6",
 		"eslint": "^9",
 		"eslint-config-next": "15.3.4",
-		"prisma": "^6.11.0",
 		"tailwindcss": "^4",
 		"typescript": "^5"
-	},
-	"prisma": {
-		"seed": "tsx prisma/init-seed.ts",
-		"schema": "./prisma/schema"
 	}
 }

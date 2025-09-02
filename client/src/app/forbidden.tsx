@@ -2,7 +2,7 @@
 
 import { Button, Result } from "antd";
 import React from "react";
-import { RoutesConfig } from "./config/routes.config";
+import { RoutesConfig } from "../config/routes.config";
 import Link from "next/link";
 
 const ForbiddenPage = () => {

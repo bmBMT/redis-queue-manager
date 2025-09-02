@@ -1,7 +1,6 @@
-import { RoutesConfig } from "@client/config/routes.config";
+import { RoutesConfig } from "~/src/config/routes.config";
 import { NextResponse } from "next/server";
 import { auth } from "~/auth";
-// export default createMiddleware(routing);
 
 export default auth(req => {
   if (!req.auth && req.nextUrl.pathname !== RoutesConfig.AUTH)

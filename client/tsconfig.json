@@ -20,8 +20,7 @@
     ],
     "paths": {
       "@client/*": ["./src/app/*"],
-      "@server/*": ["./src/server/*"],
-      "@common/*": ["./src/common/*"],
+      "@server/*": ["../server/src/*"],
       "~/*": ["./*"],
     }
   },

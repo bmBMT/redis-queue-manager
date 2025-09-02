@@ -1,7 +1,7 @@
 import type { NextAuthConfig } from 'next-auth';
 import Keycloak from "next-auth/providers/keycloak"
 import { PrismaAdapter } from "@auth/prisma-adapter"
-import prisma from '@server/lib/prisma';
+import { prisma } from '@redis-queue-manager/prisma';
 
 export const authConfig = {
   adapter: PrismaAdapter(prisma),

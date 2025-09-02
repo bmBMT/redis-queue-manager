@@ -1,0 +1,13 @@
+{
+  "name": "@redis-queue-manager/zod",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "dist/index.js",
+  "dependencies": {
+    "@redis-queue-manager/shared": "^1.0.0",
+    "zod": "^3.24.4"
+  }
+}

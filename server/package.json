@@ -1,0 +1,32 @@
+{
+  "name": "@redis-queue-manager/server",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/server.ts",
+    "lint": "eslint --cache --ext \".js,.ts,.tsx\" src/server.ts",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/cors": "^11.0.1",
+    "@redis-queue-manager/prisma": "^1.0.0",
+    "@redis-queue-manager/shared": "^1.0.0",
+    "@redis-queue-manager/zod": "^1.0.0",
+    "@trpc/server": "^11.5.0",
+    "fastify": "^5.4.0",
+    "ioredis": "^5.7.0",
+    "speakingurl": "^14.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.3",
+    "@types/speakingurl": "^13.0.6",
+    "eslint": "^9.29.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  },
+  "prisma": {
+    "seed": "tsx prisma/init-seed.ts",
+    "schema": "./prisma/schema"
+  }
+}

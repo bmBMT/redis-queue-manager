@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./shared/styles/globals.css";
-import { TrpcProvider } from "./api/trpc/client/trpc-provider";
-import AntdProvider from "./shared/providers/AntdProvider";
+import "../shared/styles/globals.css";
+import { TrpcProvider } from "../config/trpc/trpc-provider";
+import AntdProvider from "../shared/providers/AntdProvider";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "../../auth";
