@@ -10,7 +10,6 @@ dotenv.config({ path: [EnvironmentsConfig.server, EnvironmentsConfig.prisma] })
 
 const fastify = Fastify({
   maxParamLength: 5000,
-  // logger: true,
 })
 
 const start = async () => {

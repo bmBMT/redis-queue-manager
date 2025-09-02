@@ -6,7 +6,6 @@ model User {
   image         String?
   password      String?   @db.VarChar(1000)
   accounts      Account[]
-  sessions      Session[]
 
   @@map("users")
 }
