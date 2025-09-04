@@ -5,11 +5,13 @@ import fastifyCors from "@fastify/cors"
 import { AppRouter, appRouter } from "./router"
 import dotenv from "dotenv"
 import { EnvironmentsConfig } from "@redis-queue-manager/shared"
+import redisManagerPlugin from './plugins/redis-manager.plugin'
 
 dotenv.config({ path: [EnvironmentsConfig.server, EnvironmentsConfig.prisma] })
 
 const fastify = Fastify({
   maxParamLength: 5000,
+  logger: true
 })
 
 const start = async () => {
@@ -20,6 +22,7 @@ const start = async () => {
     })
 
     await fastify.register(fastifyCookie)
+    await fastify.register(redisManagerPlugin);
 
     await fastify.register(fastifyTRPCPlugin, {
       prefix: "/",

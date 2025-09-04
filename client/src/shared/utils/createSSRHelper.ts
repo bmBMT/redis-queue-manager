@@ -1,8 +1,10 @@
-import { AppRouter, appRouter } from '@server/router';
-import { createServerSideHelpers } from '@trpc/react-query/server';
+import { AppRouter } from "@server/router"
+import { createServerSideHelpers } from "@trpc/react-query/server"
+import { initTrpcClient } from '~/src/config/trpc/trpc'
+
 
 export const createSSRHelper = () =>
   createServerSideHelpers<AppRouter>({
-    router: appRouter,
-    ctx: () => { },
-  });
+    client: initTrpcClient(),
+    ctx: () => {},
+  })

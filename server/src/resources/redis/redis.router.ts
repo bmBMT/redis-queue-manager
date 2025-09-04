@@ -1,14 +1,10 @@
-import { RedisAddConnectionDto, RedisTestConnectionDto } from '@redis-queue-manager/zod';
+import { RedisAddConnectionDto } from '@redis-queue-manager/zod';
 import { publicProcedure, router } from '../../trpc';
 import RedisService from "./redis.service";
 
 const redisRouter = router({
-  testConnection: publicProcedure.input(RedisTestConnectionDto).mutation(({ input }) =>
-    RedisService.testConnection({
-      host: input.host,
-      password: input.password,
-      port: input.port,
-    })
+  testConnection: publicProcedure.input(RedisAddConnectionDto).mutation(({ input }) =>
+    RedisService.testConnection(input)
   ),
 
   checkNameIsFree: publicProcedure

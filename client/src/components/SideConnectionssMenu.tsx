@@ -37,7 +37,7 @@ const SideConnectionsMenu = () => {
           </Link>
         ),
         icon: <Database size={18} />,
-        disabled: !connection.registered,
+        disabled: !connection.isConnected,
       })),
     },
   ];

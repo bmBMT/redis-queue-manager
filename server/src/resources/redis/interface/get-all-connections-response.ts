@@ -4,6 +4,6 @@ export interface IGetAllConnectionsResponse {
   id: string;
   name: string;
   displayName: string;
-  registered: boolean;
+  isConnected: boolean;
   status: RedisStatus | null;
 }

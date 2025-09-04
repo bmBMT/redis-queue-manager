@@ -1,102 +1,81 @@
-import { TRPCError } from "@trpc/server";
-import RedisInstance from "../../common/redis/redis.instance";
-import { IGetAllConnectionsResponse } from "./interface/get-all-connections-response";
-import slug from "speakingurl";
-import { redisRegistry } from '../../common/redis/redis-registry';
-import { RedisTestConnectionDtoType } from '@redis-queue-manager/zod/schemas/dto/test-connection.dto';
-import { RedisAddConnectionDtoType } from '@redis-queue-manager/zod/schemas/dto/add-new-conneciton.dto';
-import { prisma } from '@redis-queue-manager/prisma';
-import { Errors } from '@redis-queue-manager/shared';
+import { TRPCError } from "@trpc/server"
+import { IGetAllConnectionsResponse } from "./interface/get-all-connections-response"
+import slug from "speakingurl"
+import { RedisAddConnectionDtoType } from "@redis-queue-manager/zod/schemas/dto/add-new-conneciton.dto"
+import { prisma } from "@redis-queue-manager/prisma"
+import { Errors } from "@redis-queue-manager/shared"
+import RedisManager from "../../common/redis/redis-manager"
 
 class RedisService {
-  public static async testConnection(config: RedisTestConnectionDtoType): Promise<boolean> {
-    const instance = new RedisInstance("test-connection", {
-      ...config,
-      lazyConnect: true,
-      maxRetriesPerRequest: 1,
-    });
+  public static async testConnection(config: RedisAddConnectionDtoType): Promise<boolean> {
+    const isConnectable = await RedisManager.testConnection(config)
 
-    try {
-      await instance.instance.connect();
-
-      return true;
-    } catch {
-      instance.instance.quit();
-
+    if (!isConnectable)
       throw new TRPCError({
         code: "BAD_REQUEST",
         message: Errors.REDIS_CONNECTION_FAILED,
-      });
-    }
+      })
+
+    return isConnectable
   }
 
   public static async checkNameIsFree(name: string): Promise<boolean> {
     const existConnection = await prisma.redisConnection.findFirst({
       where: { name: slug(name) },
-    });
+    })
 
     if (existConnection)
       throw new TRPCError({
         code: "BAD_REQUEST",
         message: Errors.REDIS_CONNECTION_NAME_ALREADY_EXISTS,
-      });
+      })
 
-    return true;
+    return true
   }
 
   public static async checkConnectionDataIsFree(host: string, port: number) {
     const existConnection = await prisma.redisConnection.findFirst({
       where: { host, port },
-    });
+    })
 
     if (existConnection)
       throw new TRPCError({
         code: "BAD_REQUEST",
         message: Errors.REDIS_CONNECTION_DATA_ALREADY_EXISTS,
-      });
+      })
 
-    return existConnection;
+    return existConnection
   }
 
   public static async addNewConnection(input: RedisAddConnectionDtoType) {
-    await this.checkNameIsFree(input.name);
-    await this.checkConnectionDataIsFree(input.host, input.port);
+    await this.checkNameIsFree(input.name)
+    await this.checkConnectionDataIsFree(input.host, input.port)
 
-    return await prisma.redisConnection.create({
-      data: {
-        ...input,
-        displayName: input.name,
-        name: slug(input.name),
-      },
-    });
+    await RedisManager.addConnection(input)
   }
 
   public static async getAllConnections(): Promise<IGetAllConnectionsResponse[]> {
-    const dbConnections = await prisma.redisConnection.findMany();
-    const registeredConnections = await redisRegistry.list();
-    const response: IGetAllConnectionsResponse[] = [];
+    const registeredConnections = RedisManager.getAllInstances().values()
+    const response: IGetAllConnectionsResponse[] = []
 
-    for (const connection of dbConnections) {
-      const isConnectionRegistered = registeredConnections.includes(connection.name);
-      const redis = isConnectionRegistered ? await redisRegistry.get(connection.name) : null;
-
+    for (const entity of registeredConnections) {
       response.push({
-        id: connection.id,
-        name: connection.name,
-        displayName: connection.displayName,
-        status: isConnectionRegistered ? redis!.instance.status : "close",
-        registered: isConnectionRegistered,
-      });
+        id: entity.connection.id,
+        name: entity.connection.name,
+        displayName: entity.connection.displayName,
+        status: entity.client.status,
+        isConnected: entity.isConnected,
+      })
     }
 
-    return response;
+    return response
   }
 
   public static async getConnectionByName(name: string) {
-    const redis = await redisRegistry.get(name);
+    // const redis = await RedisManager.getInstance()
 
-    return await redis?.getInfo();
+    return {}
   }
 }
 
-export default RedisService;
+export default RedisService
