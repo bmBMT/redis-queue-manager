@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "/Users/aleksandrsamarin/projects/redis-queue-manager/server/logs/.720c6ee16eff45c3a2490be9ad81cbc11a94754a-audit.json",
+    "files": [
+        {
+            "date": 1757056595593,
+            "name": "/Users/aleksandrsamarin/projects/redis-queue-manager/server/logs/request-05-09-2025.log",
+            "hash": "03943f60df6f6233daac3dc5c1af484ea6b37c816ae77c4646bb8c16e6942556"
+        }
+    ],
+    "hashType": "sha256"
+}

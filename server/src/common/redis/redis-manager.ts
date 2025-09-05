@@ -126,21 +126,16 @@ class RedisManager {
   public static async testConnection(connection: RedisAddConnectionDtoType): Promise<boolean> {
     const testClient = this.createRedisClient(connection)
 
-    return new Promise(() => {
+    return new Promise((resolve) => {
       testClient.on("connect", () => {
         testClient.quit()
-        return true
+        resolve(true);
       })
 
       testClient.on("error", () => {
         testClient.quit()
-        return false
+        resolve(false)
       })
-
-      setTimeout(() => {
-        testClient.quit()
-        return false
-      }, 5000)
     })
   }
 

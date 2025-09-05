@@ -1,0 +1,135 @@
+[09-05-2025, 00:02:37 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 00:19:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 00:36:38 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 00:54:00 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 01:10:22 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 01:10:22 +03:00] error: Redis error (rzd-stage): Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+[09-05-2025, 01:10:22 +03:00] error: Redis error (rzd-stage): Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+[09-05-2025, 01:20:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 01:35:53 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 01:51:51 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 02:07:59 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 02:21:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 02:37:20 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 02:53:09 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 03:09:24 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 03:22:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 03:39:32 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 03:56:23 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 04:13:23 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 04:23:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 04:40:15 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 04:57:39 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 05:15:03 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 05:24:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 05:42:08 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 05:59:39 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 06:16:50 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 06:25:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 06:25:14 +03:00] error: Redis error (rzd-stage): Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+[09-05-2025, 06:25:14 +03:00] error: Redis error (rzd-stage): Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+[09-05-2025, 06:42:57 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 06:59:31 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 07:16:06 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 07:26:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 07:41:40 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 07:58:03 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 08:13:46 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 08:27:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 08:45:15 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:00:50 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:16:18 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:28:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:45:14 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:46:19 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:57:32 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:58:37 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 09:59:42 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:00:47 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:01:52 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:02:57 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:04:02 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:04:02 +03:00] error: Redis error (rzd-stage): Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+[09-05-2025, 10:04:02 +03:00] error: Redis error (rzd-stage): Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+[09-05-2025, 10:05:07 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:06:12 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:07:17 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:08:22 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:09:22 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:10:27 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:11:32 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:12:37 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:13:42 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:14:47 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:15:52 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:18:44 +03:00] error: Redis connected: rzd
+[09-05-2025, 10:18:44 +03:00] error: Redis connected: rzd-stage
+[09-05-2025, 10:18:48 +03:00] error: Redis connected: rzd-stage
+[09-05-2025, 10:18:48 +03:00] error: Redis connected: rzd
+[09-05-2025, 10:22:04 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:23:09 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:24:22 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:25:27 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:26:32 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:27:37 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:28:42 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:29:47 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:30:52 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:35:22 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:37:58 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:39:03 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:40:08 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:50:25 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 10:51:30 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 11:00:38 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 11:04:36 +03:00] error: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:05:37 +03:00] error: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:06:20 +03:00] error: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:06:34 +03:00] error: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:06:35 +03:00] error: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:06:35 +03:00] error: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:14:13 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 11:15:18 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 11:16:43 +03:00] error: ❌ tRPC Request
+  • Type: mutation
+  • Path: redis.testConnection
+  • Duration: 3ms
+  • Context: [Empty Context]
+  • Input: [Empty Input]
+  • Result: {"code":"BAD_REQUEST","name":"TRPCError"}
+[09-05-2025, 11:17:41 +03:00] error: ✘ tRPC Request
+  • Type: mutation
+  • Path: redis.testConnection
+  • Duration: 4ms
+  • Context: [Empty Context]
+  • Input: [Empty Input]
+  • Result: {"code":"BAD_REQUEST","name":"TRPCError"}
+[09-05-2025, 11:18:16 +03:00] error: ✘ tRPC Request
+  • Type: mutation
+  • Path: redis.testConnection
+  • Duration: 3ms
+  • Context: [Empty Context]
+  • Input: [Empty Input]
+  • Message: TRPCError: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:18:53 +03:00] error: ✘ tRPC Request
+  • Type: mutation
+  • Path: redis.testConnection
+  • Duration: 2ms
+  • Context: [Empty Context]
+  • Input: [Empty Input]
+  • Message: BAD_REQUEST
+[09-05-2025, 11:19:04 +03:00] error: ✘ tRPC Request
+  • Type: mutation
+  • Path: redis.testConnection
+  • Duration: 3ms
+  • Context: [Empty Context]
+  • Input: [Empty Input]
+  • Message: Не удалось подключиться к Redis. Проверьте правильность введенных данных
+[09-05-2025, 11:20:03 +03:00] error: Redis error (rzd-stage): read ECONNRESET
+[09-05-2025, 11:24:46 +03:00] error: ✘ tRPC Request
+  • Type: mutation
+  • Path: redis.testConnection
+  • Duration: 5ms
+  • Context: [Empty Context]
+  • Input: [Empty Input]
+  • Message: Не удалось подключиться к Redis. Проверьте правильность введенных данных

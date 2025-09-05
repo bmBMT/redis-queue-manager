@@ -1,27 +1,27 @@
 import { RedisAddConnectionDto } from '@redis-queue-manager/zod';
-import { publicProcedure, router } from '../../trpc';
+import { procedure, router } from '../../config/trpc.config';
 import RedisService from "./redis.service";
 
 const redisRouter = router({
-  testConnection: publicProcedure.input(RedisAddConnectionDto).mutation(({ input }) =>
+  testConnection: procedure.input(RedisAddConnectionDto).mutation(({ input }) =>
     RedisService.testConnection(input)
   ),
 
-  checkNameIsFree: publicProcedure
+  checkNameIsFree: procedure
     .input(RedisAddConnectionDto.pick({ name: true }))
     .query(({ input }) => RedisService.checkNameIsFree(input.name)),
 
-  checkConnectionDataIsFree: publicProcedure
+  checkConnectionDataIsFree: procedure
     .input(RedisAddConnectionDto.pick({ host: true, port: true }))
     .query(({ input }) => RedisService.checkConnectionDataIsFree(input.host, input.port)),
 
-  addNewConnection: publicProcedure
+  addNewConnection: procedure
     .input(RedisAddConnectionDto)
     .mutation(({ input }) => RedisService.addNewConnection(input)),
 
-  getAllConnections: publicProcedure.query(() => RedisService.getAllConnections()),
+  getAllConnections: procedure.query(() => RedisService.getAllConnections()),
 
-  getConnectionByName: publicProcedure
+  getConnectionByName: procedure
     .input(RedisAddConnectionDto.pick({ name: true }))
     .query(({ input }) => RedisService.getConnectionByName(input.name)),
 });

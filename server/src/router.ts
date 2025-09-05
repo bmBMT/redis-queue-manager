@@ -1,5 +1,5 @@
 import redisRouter from "./resources/redis/redis.router";
-import { router } from "./trpc";
+import { router } from "./config/trpc.config";
 
 export const appRouter = router({
   redis: redisRouter,

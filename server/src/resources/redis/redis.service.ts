@@ -44,7 +44,7 @@ class RedisService {
         message: Errors.REDIS_CONNECTION_DATA_ALREADY_EXISTS,
       })
 
-    return existConnection
+    return !existConnection
   }
 
   public static async addNewConnection(input: RedisAddConnectionDtoType) {

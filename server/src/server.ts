@@ -5,25 +5,30 @@ import fastifyCors from "@fastify/cors"
 import { AppRouter, appRouter } from "./router"
 import dotenv from "dotenv"
 import { EnvironmentsConfig } from "@redis-queue-manager/shared"
-import redisManagerPlugin from './plugins/redis-manager.plugin'
+import redisManagerPlugin from "./plugins/redis-manager.plugin"
+import fastifyEnv from "@fastify/env"
+import { fastifyEnvConfig } from "./config/fastify-env.config"
+import { loggerInstance } from './config/logger.config'
 
 dotenv.config({ path: [EnvironmentsConfig.server, EnvironmentsConfig.prisma] })
 
 const fastify = Fastify({
   maxParamLength: 5000,
-  logger: true
+  loggerInstance: loggerInstance,
+  disableRequestLogging: true
 })
 
 const start = async () => {
   try {
+    await fastify.register(fastifyEnv, fastifyEnvConfig)
+
     await fastify.register(fastifyCors, {
       credentials: true,
-      origin: process.env.CLIENT_URL,
+      origin: fastify.config.CLIENT_URL,
     })
 
     await fastify.register(fastifyCookie)
-    await fastify.register(redisManagerPlugin);
-
+    await fastify.register(redisManagerPlugin)
     await fastify.register(fastifyTRPCPlugin, {
       prefix: "/",
       trpcOptions: {
@@ -31,9 +36,9 @@ const start = async () => {
       } as FastifyTRPCPluginOptions<AppRouter>["trpcOptions"],
     })
 
-    const port = Number(process.env.PORT) || 2022
+    const port = fastify.config.PORT
     await fastify.listen({ port })
-    console.log("Server is running on port " + port)
+    fastify.log.info("Server is running on port " + port)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)
