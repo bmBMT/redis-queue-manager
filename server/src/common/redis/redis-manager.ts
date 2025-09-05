@@ -1,10 +1,10 @@
-import { RedisInstance } from "@/types/redis.type"
 import { ONE_SECOND } from "@redis-queue-manager/shared"
 import { prisma } from "@redis-queue-manager/prisma"
 import { FastifyInstance } from "fastify"
 import RedisEntity from "./redis.entity"
 import { RedisAddConnectionDtoType } from "@redis-queue-manager/zod"
 import slug from "speakingurl"
+import { RedisInstance } from '../../types/redis.type'
 
 class RedisManager {
   private static instances: Map<string, RedisInstance> = new Map()

@@ -1,5 +1,5 @@
-import loggingMiddleware from '@/middleware/logging.middleware'
 import { initTRPC } from "@trpc/server"
+import loggingMiddleware from '../middleware/logging.middleware'
 const t = initTRPC.create()
 export default t
 

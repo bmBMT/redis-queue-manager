@@ -1,7 +1,6 @@
-import { loggerInstance } from "@/config/logger.config"
-import { middleware } from "@/config/trpc.config"
-import { maskSensitiveFields } from "@/utils/maskSensitiveFields"
-import { stringifySafe } from "@/utils/stringifySafe"
+import { loggerInstance } from '../config/logger.config'
+import { maskSensitiveFields } from '../utils/maskSensitiveFields'
+import { stringifySafe } from '../utils/stringifySafe'
 
 export default async (opts: any) => {
   const requestStart = Date.now()
