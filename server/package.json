@@ -28,9 +28,5 @@
     "eslint": "^9.29.0",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
-  },
-  "prisma": {
-    "seed": "tsx prisma/init-seed.ts",
-    "schema": "./prisma/schema"
   }
 }

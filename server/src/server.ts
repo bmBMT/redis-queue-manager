@@ -8,14 +8,14 @@ import { EnvironmentsConfig } from "@redis-queue-manager/shared"
 import redisManagerPlugin from "./plugins/redis-manager.plugin"
 import fastifyEnv from "@fastify/env"
 import { fastifyEnvConfig } from "./config/fastify-env.config"
-import { loggerInstance } from './config/logger.config'
+import { loggerInstance } from "./config/logger.config"
 
 dotenv.config({ path: [EnvironmentsConfig.server, EnvironmentsConfig.prisma] })
 
 const fastify = Fastify({
   maxParamLength: 5000,
   loggerInstance: loggerInstance,
-  disableRequestLogging: true
+  disableRequestLogging: true,
 })
 
 const start = async () => {
@@ -33,7 +33,7 @@ const start = async () => {
       prefix: "/",
       trpcOptions: {
         router: appRouter,
-      } as FastifyTRPCPluginOptions<AppRouter>["trpcOptions"],
+      } satisfies FastifyTRPCPluginOptions<AppRouter>["trpcOptions"],
     })
 
     const port = fastify.config.PORT
