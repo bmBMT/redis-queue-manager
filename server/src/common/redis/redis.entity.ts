@@ -1,18 +1,29 @@
 import Redis from "ioredis"
+import arrayConverter from "../../utils/arrayConverter"
 
 class RedisEntity extends Redis {
-	public async getQueueNames() {
-		const queues: string[] = []
-		let cursor = "0"
+  public get queueNames() {
+    return this.getFolderNames("bull")
+  }
 
-		do {
-			const [nextCursor, keys] = await this.scan(cursor, "MATCH", "bull:*", "COUNT", 100)
+  public get cacheNames() {
+    return this.getFolderNames("cache")
+  }
 
-			cursor = nextCursor
-			queues.push(...keys.map((k) => k.split(":")[1]))
-		} while (cursor !== "0")
+  private async getFolderNames(...names: string[]) {
+    const list = []
+    let cursor = "0"
 
-		return [...new Set(queues)]
-	}
+    do {
+      const [nextCursor, keys] = await this.scan(cursor, "MATCH", `${names.join(":")}:*`, "COUNT", 20000)
+
+      cursor = nextCursor
+      list.push(keys)
+    } while (cursor !== "0")
+
+    const queues: string[] = arrayConverter(list.flat(), (k) => k.split(":")[1])
+
+    return [...new Set(queues)]
+  }
 }
-export default RedisEntity;
+export default RedisEntity

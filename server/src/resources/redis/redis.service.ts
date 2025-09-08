@@ -5,6 +5,7 @@ import { RedisAddConnectionDtoType } from "@redis-queue-manager/zod/schemas/dto/
 import { prisma } from "@redis-queue-manager/prisma"
 import { Errors } from "@redis-queue-manager/shared"
 import RedisManager from "../../common/redis/redis-manager"
+import ServerErrors from "../../common/errors"
 
 class RedisService {
   public static async testConnection(config: RedisAddConnectionDtoType): Promise<boolean> {
@@ -71,9 +72,23 @@ class RedisService {
   }
 
   public static async getConnectionByName(name: string) {
-    // const redis = await RedisManager.getInstance()
+    const redis = RedisManager.getInstance(name)
 
-    return {}
+    if (!redis)
+      throw new TRPCError({
+        code: "NOT_FOUND",
+        message: ServerErrors.REDIS_NOT_FOUND,
+      })
+
+    const queues = await redis.client.queueNames
+    const caches = await redis.client.cacheNames
+
+    return {
+      name: redis.connection.name,
+      isConnected: redis.isConnected,
+      queues,
+      caches,
+    }
   }
 }
 

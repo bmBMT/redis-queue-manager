@@ -81,8 +81,8 @@ class RedisManager {
     }
   }
 
-  public static getInstance(connectionId: string): RedisInstance | undefined {
-    return this.instances.get(connectionId)
+  public static getInstance(connectionName: string): RedisInstance | undefined {
+    return this.instances.get(connectionName)
   }
 
   public static getAllInstances(): Map<string, RedisInstance> {

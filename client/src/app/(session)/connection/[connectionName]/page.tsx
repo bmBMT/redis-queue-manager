@@ -13,7 +13,7 @@ const ConnectionPage = async ({ params }: IConnectionPage) => {
 
 	if (helpers.queryClient.getQueryData([]))
 
-  return <Hydrate state={helpers.dehydrate()}>ConnectionPage</Hydrate>;
+  return <Hydrate state={helpers.dehydrate()}></Hydrate>;
 };
 
 export default ConnectionPage;

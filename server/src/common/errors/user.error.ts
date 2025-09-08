@@ -1,4 +1,4 @@
 export const USERS_ERRORS = {
-  USER_NOT_FOUND: 'Пользователь не найден',
-  USER_FORBIDDEN: 'У вас недостаточно прав для выполнения этого действия',
-};
+  USER_NOT_FOUND: "User not found",
+  USER_FORBIDDEN: "You do not have sufficient rights to perform this action",
+}
