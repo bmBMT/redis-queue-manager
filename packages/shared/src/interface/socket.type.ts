@@ -1,7 +1,7 @@
 import { RedisStatus } from "./redis-status.type"
 
 export type RedisChangeStateType = {
-  id: string
+  name: string
   isConnected: boolean
   status: RedisStatus
 }

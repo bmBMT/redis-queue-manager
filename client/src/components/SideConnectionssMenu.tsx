@@ -23,7 +23,7 @@ const SideConnectionsMenu = () => {
     const updateRedisConnectionState = (data: RedisChangeStateType) => {
       redis.getAllConnections.setQueriesData(undefined, {}, (state) =>
         state?.map((item) =>
-          item.id === data.id ? { ...item, isConnected: data.isConnected, status: data.status } : item
+          item.name === data.name ? { ...item, ...data } : item
         )
       )
     }

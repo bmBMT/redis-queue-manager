@@ -41,7 +41,6 @@ class RedisManager {
 
       for (const connection of connections) {
         const connectionData = {
-          id: connection.id,
           host: connection.host,
           name: connection.name,
           port: connection.port,
@@ -59,7 +58,7 @@ class RedisManager {
           redisInstance.isConnected = true
           fastify.log.info(`Redis connected: ${connection.name}`)
           fastify.io.emit(SocketEventsEnum.REDIS_CHANGE_STATE, {
-            id: redisInstance.connection.id,
+            name: redisInstance.connection.name,
             isConnected: true,
             status: redisInstance.client.status,
           })
@@ -69,13 +68,13 @@ class RedisManager {
           redisInstance.isConnected = false
           fastify.log.error(`Redis error (${connection.name}): ${error.message}`)
           fastify.io.emit(SocketEventsEnum.REDIS_CHANGE_STATE, {
-            id: redisInstance.connection.id,
+            name: redisInstance.connection.name,
             isConnected: false,
             status: redisInstance.client.status,
           })
         })
 
-        this.instances.set(connection.id, redisInstance)
+        this.instances.set(connection.name, redisInstance)
       }
     } catch (error) {
       fastify.log.error("Error initializing Redis connections:", error as any)
@@ -117,19 +116,19 @@ class RedisManager {
       fastify.log.error(`Redis error (${connection.name}):`, error)
     })
 
-    this.instances.set(connection.id, redisInstance)
+    this.instances.set(connection.name, redisInstance)
 
     return redisInstance
   }
 
-  public static async removeConnection(connectionId: string): Promise<void> {
-    const instance = this.instances.get(connectionId)
+  public static async removeConnection(connectionName: string): Promise<void> {
+    const instance = this.instances.get(connectionName)
     if (instance) {
       await instance.client.quit()
-      this.instances.delete(connectionId)
+      this.instances.delete(connectionName)
 
       await prisma.redisConnection.delete({
-        where: { id: connectionId },
+        where: { name: connectionName },
       })
     }
   }

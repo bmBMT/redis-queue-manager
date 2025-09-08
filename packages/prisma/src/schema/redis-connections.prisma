@@ -1,6 +1,5 @@
 model RedisConnection {
-  id String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-	name String @unique
+	name String @id @unique
 	displayName String
 	host String
 	port Int

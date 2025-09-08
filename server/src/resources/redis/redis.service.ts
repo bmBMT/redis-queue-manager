@@ -60,7 +60,6 @@ class RedisService {
 
     for (const entity of registeredConnections) {
       response.push({
-        id: entity.connection.id,
         name: entity.connection.name,
         displayName: entity.connection.displayName,
         status: entity.client.status,
