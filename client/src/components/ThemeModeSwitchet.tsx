@@ -1,6 +1,6 @@
 "use client";
 
-import useThemeModeStore from "~/src/shared/store/themeMode.store";
+import useThemeModeStore from "@//shared/store/themeMode.store";
 import { Segmented } from "antd";
 import { MoonOutlined, MoonFilled, SunOutlined, SunFilled } from "@ant-design/icons";
 

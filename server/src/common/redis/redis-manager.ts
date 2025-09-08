@@ -4,7 +4,8 @@ import { FastifyInstance } from "fastify"
 import RedisEntity from "./redis.entity"
 import { RedisAddConnectionDtoType } from "@redis-queue-manager/zod"
 import slug from "speakingurl"
-import { RedisInstance } from '../../types/redis.type'
+import { RedisInstance } from "../../types/redis.type"
+import { SocketEventsEnum } from "@redis-queue-manager/shared/src/interface/socket.type"
 
 class RedisManager {
   private static instances: Map<string, RedisInstance> = new Map()
@@ -15,7 +16,7 @@ class RedisManager {
     this.fastify.log.info("RedisManager initialized")
   }
 
- static getFastify(): FastifyInstance {
+  static getFastify(): FastifyInstance {
     if (!this.fastify) {
       throw new Error("RedisManager not initialized. Call RedisManager.initialize() first.")
     }
@@ -57,11 +58,21 @@ class RedisManager {
         redisInstance.client.on("connect", () => {
           redisInstance.isConnected = true
           fastify.log.info(`Redis connected: ${connection.name}`)
+          fastify.io.emit(SocketEventsEnum.REDIS_CHANGE_STATE, {
+            id: redisInstance.connection.id,
+            isConnected: true,
+            status: redisInstance.client.status,
+          })
         })
 
         redisInstance.client.on("error", (error) => {
           redisInstance.isConnected = false
           fastify.log.error(`Redis error (${connection.name}): ${error.message}`)
+          fastify.io.emit(SocketEventsEnum.REDIS_CHANGE_STATE, {
+            id: redisInstance.connection.id,
+            isConnected: false,
+            status: redisInstance.client.status,
+          })
         })
 
         this.instances.set(connection.id, redisInstance)
@@ -129,7 +140,7 @@ class RedisManager {
     return new Promise((resolve) => {
       testClient.on("connect", () => {
         testClient.quit()
-        resolve(true);
+        resolve(true)
       })
 
       testClient.on("error", () => {

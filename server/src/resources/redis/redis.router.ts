@@ -1,11 +1,9 @@
-import { RedisAddConnectionDto } from '@redis-queue-manager/zod';
-import { procedure, router } from '../../config/trpc.config';
-import RedisService from "./redis.service";
+import { RedisAddConnectionDto } from "@redis-queue-manager/zod"
+import { procedure, router } from "../../config/trpc.config"
+import RedisService from "./redis.service"
 
 const redisRouter = router({
-  testConnection: procedure.input(RedisAddConnectionDto).mutation(({ input }) =>
-    RedisService.testConnection(input)
-  ),
+  testConnection: procedure.input(RedisAddConnectionDto).mutation(({ input }) => RedisService.testConnection(input)),
 
   checkNameIsFree: procedure
     .input(RedisAddConnectionDto.pick({ name: true }))
@@ -24,6 +22,6 @@ const redisRouter = router({
   getConnectionByName: procedure
     .input(RedisAddConnectionDto.pick({ name: true }))
     .query(({ input }) => RedisService.getConnectionByName(input.name)),
-});
+})
 
-export default redisRouter;
+export default redisRouter

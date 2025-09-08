@@ -4,8 +4,8 @@ import "@ant-design/v5-patch-for-react-19";
 import { ConfigProvider, Layout } from "antd";
 import { StyleProvider } from "@ant-design/cssinjs";
 import { PropsWithChildren } from "react";
-import theme from "~/src/config/antd.config";
-import useThemeModeStore from "~/src/shared/store/themeMode.store";
+import theme from "@//config/antd.config";
+import useThemeModeStore from "@//shared/store/themeMode.store";
 import { theme as antdTheme } from "antd";
 import { Errors } from '@redis-queue-manager/shared';
 

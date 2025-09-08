@@ -12,7 +12,7 @@ export const authConfig = {
     Keycloak
   ],
   session: {
-    strategy: 'jwt'
+    strategy: 'jwt',
   },
   useSecureCookies: process.env.NODE_ENV === 'production',
 } satisfies NextAuthConfig;

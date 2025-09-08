@@ -9,11 +9,16 @@ import redisManagerPlugin from "./plugins/redis-manager.plugin"
 import fastifyEnv from "@fastify/env"
 import { fastifyEnvConfig } from "./config/fastify-env.config"
 import { loggerInstance } from "./config/logger.config"
+import { createUserContext } from './contexts/user.context'
+import socketPlugin from './plugins/socket.plugin'
+import { createInnerContext } from './contexts/inner.context'
 
 dotenv.config({ path: [EnvironmentsConfig.server, EnvironmentsConfig.prisma] })
 
 const fastify = Fastify({
-  maxParamLength: 5000,
+  routerOptions: {
+    maxParamLength: 5000,
+  },
   loggerInstance: loggerInstance,
   disableRequestLogging: true,
 })
@@ -28,12 +33,14 @@ const start = async () => {
     })
 
     await fastify.register(fastifyCookie)
+    await fastify.register(socketPlugin)
     await fastify.register(redisManagerPlugin)
     await fastify.register(fastifyTRPCPlugin, {
       prefix: "/",
       trpcOptions: {
         router: appRouter,
-      } satisfies FastifyTRPCPluginOptions<AppRouter>["trpcOptions"],
+        createContext: createInnerContext,
+      },
     })
 
     const port = fastify.config.PORT

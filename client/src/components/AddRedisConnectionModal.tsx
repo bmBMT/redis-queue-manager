@@ -1,8 +1,8 @@
 'use client'
 
 import { PlusOutlined } from "@ant-design/icons";
-import { trpc } from "~/src/config/trpc/trpc";
-import useForm from "~/src/shared/hooks/useForm";
+import { trpc } from "@//config/trpc/trpc";
+import useForm from "@//shared/hooks/useForm";
 import { Button, Flex, Form, Input, InputNumber, Modal } from "antd";
 import { Database } from "lucide-react";
 import { Fragment } from "react";

@@ -1,4 +1,3 @@
-// plugins/redis-manager-plugin.ts
 import { FastifyPluginAsync } from 'fastify';
 import RedisManager from '../common/redis/redis-manager';
 

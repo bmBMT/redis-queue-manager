@@ -1,4 +1,4 @@
-import { RoutesConfig } from "~/src/config/routes.config";
+import { RoutesConfig } from "@/config/routes.config";
 import { NextResponse } from "next/server";
 import { auth } from "~/auth";
 

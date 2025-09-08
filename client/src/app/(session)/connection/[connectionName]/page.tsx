@@ -1,5 +1,5 @@
-import Hydrate from "~/src/config/trpc/hydrate-client";
-import { createSSRHelper } from '~/src/shared/utils/createSSRHelper';
+import Hydrate from "@//config/trpc/hydrate-client";
+import { createSSRHelper } from '@//shared/utils/createSSRHelper';
 
 interface IConnectionPage {
   params: Promise<{ connectionName: string }>;

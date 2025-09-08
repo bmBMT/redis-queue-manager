@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "dev": "tsx watch src/server.ts",
+    "dev": "cross-env NODE_ENV=development tsx watch src/server.ts",
     "lint": "eslint --cache --ext \".js,.ts,.tsx\" src/server.ts",
-    "start": "node dist/server.js"
+    "start": "cross-env NODE_ENV=production node dist/server.js"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
@@ -15,9 +15,13 @@
     "@redis-queue-manager/shared": "^1.0.0",
     "@redis-queue-manager/zod": "^1.0.0",
     "@trpc/server": "^11.5.0",
+    "cross-env": "^10.0.0",
     "dayjs": "^1.11.18",
     "fastify": "^5.4.0",
+    "fastify-plugin": "^5.0.1",
     "ioredis": "^5.7.0",
+    "next-auth": "^5.0.0-beta.29",
+    "socket.io": "^4.8.1",
     "speakingurl": "^14.0.1",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0"

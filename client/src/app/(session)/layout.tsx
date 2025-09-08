@@ -1,7 +1,7 @@
-import Hydrate from '~/src/config/trpc/hydrate-client';
-import SessionLayoutView from "~/src/view/layouts/session-layout.view";
+import Hydrate from '@//config/trpc/hydrate-client';
+import SessionLayoutView from "@//view/layouts/session-layout.view";
 import { PropsWithChildren } from "react";
-import { createSSRHelper } from '~/src/shared/utils/createSSRHelper';
+import { createSSRHelper } from '@//shared/utils/createSSRHelper';
 
 const SessionLayout = async ({ children }: PropsWithChildren) => {
   const helpers = createSSRHelper();
